@@ -1,0 +1,406 @@
+/* Copyright (c) 2014 Brad Conte (brad@bradconte.com, http://myanimelist.net/profile/B-Con)
+ * License: http://opensource.org/licenses/MIT
+ * (Summary: You may use, edit, and redistribute this all you want. Just keep the top two lines of this file that credit me and mention the license.)
+ *
+ * Description: This is the CSS theme for my MAL list at http://myanimelist.net/animelist/B-Con .
+ * They generate the HTML, I just style it. Their HTML is quirky, to say the least parts, so I
+ * have a few hacks in here.
+ *     This is an original work. Both the CSS and the set of "status" remote-control style
+ * icons that come with it. See the license information above.
+ *
+ */
+@import "https://mal-image.appspot.com/auto/kenny_was_afk/";
+
+@import "https://dl.dropboxusercontent.com/u/78340470/Icon%20Style%20Menu%20Bar/IconStyleCSSLeft.css";
+
+@import "http://dl.dropbox.com/u/49469857/MAL/premade/anime.css";
+
+@import "http://dl.dropbox.com/u/78340470/CSSforFoxgirls.css";
+
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic');
+
+/* There are rules for mal_control_strip in the site's stylesheets included after this.
+ */
+#mal_control_strip {
+    background: #222222 !important;
+    box-shadow: 0 0 9px #222222;
+}
+
+body {
+    background-color: #d6d6d6;
+    color: #222222;
+    font-family: 'Open Sans',Arial,Sans-Serif;
+    font-size: 12px;
+}
+
+/* Determines the positioning of the list. */
+#list_surround {
+    margin: 13px auto 0 auto;
+    width: 1060px;
+    padding: 0 50px;
+    box-shadow: 0 0 9px #222222;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+/* All links on your list. */
+a {
+    color: #222222;
+    text-decoration: none;
+}
+a:visited {
+    color: #222222;
+    text-decoration: inherit;
+}
+a:hover {
+    color: #222222;
+    text-decoration: underline;
+}
+
+/* The list views up top. */
+#list_surround > table:first-of-type {
+    margin: -60px;
+    border-spacing: 60px;
+    table-layout: fixed;
+}
+.status_not_selected {
+    font-size: 11px;
+    padding: 0px;
+    width: 110px;
+    height: 110px;
+    background-color: #d6d6d6;
+    border-radius: 50%;
+}
+.status_selected {
+    font-size: 11px;
+    padding: 0px;
+    width: 110px;
+    height: 110px;
+    background-color: #222222;
+    border-radius: 50%;
+    color: #ffffff;
+    font-weight: bold;
+}
+.status_not_selected:hover,
+.status_selected:hover {
+    box-shadow: 0px 0px 6px 1px #222222;
+    font-weight: bold;
+}
+.status_selected a {
+    color: inherit;
+}
+
+/*
+ * The table rows for each show.
+*/
+
+/* Header classes for Currently Watching, Completed, Dropped, etc... */
+.header_title {
+    font-size: 34px;
+    font-weight: bold;
+    margin: 25px 0 4px 0;
+}
+.header_cw span:after {
+    display: inline-block;
+    content: "";
+    margin: 0px 0px -6px 13px;
+    height: 35px;
+    width: 35px;
+    background: transparent url('http://bradconte.com/files/projects/mal-icon-theme-black-white-small.png') no-repeat;
+    background-position: 0px -70px;
+}
+.header_completed span:after {
+    display: inline-block;
+    content: "";
+    margin: 0px 0px -6px 13px;
+    height: 35px;
+    width: 35px;
+    background: transparent url('http://bradconte.com/files/projects/mal-icon-theme-black-white-small.png') no-repeat;
+    background-position: 0px -105px;
+}
+.header_onhold span:after {
+    display: inline-block;
+    content: "";
+    margin: 0px 0px -6px 13px;
+    height: 35px;
+    width: 35px;
+    background: transparent url('http://bradconte.com/files/projects/mal-icon-theme-black-white-small.png') no-repeat;
+    background-position: 0px 0px;
+}
+.header_dropped span:after {
+    display: inline-block;
+    content: "";
+    margin: 0px 0px -6px 13px;
+    height: 35px;
+    width: 35px;
+    background: transparent url('http://bradconte.com/files/projects/mal-icon-theme-black-white-small.png') no-repeat;
+    background-position: 0px -35px;
+
+}
+.header_ptw span:after {
+    display: inline-block;
+    content: "";
+    margin: 0px 0px -6px 13px;
+    height: 35px;
+    width: 35px;
+    background: transparent url('http://bradconte.com/files/projects/mal-icon-theme-black-white-small.png') no-repeat;
+    background-position: 0px -140px;
+}
+
+/* The "Anime Title", "Score", "# Eps" columns. */
+.table_header {
+    background-color: #222222;
+    color: #FFFFFF;
+    padding: 8px 6px;
+}
+
+/* headerLink represents the color of the links inside the_header */
+.table_headerLink {
+    color: inherit;
+}
+.table_headerLink:visited {
+    color: inherit;
+}
+.table_headerLink:hover {
+    color: inherit;
+}
+
+.animetitle {
+    font-weight: bold;
+    color: #222222;
+}
+
+/* The td's for the show listing rows. Act on these instead of tr's. */
+[class^=td] {
+    background-color: #FBFBFB;
+    padding: 4px 6px;
+    border-bottom: 1px dotted #d6d6d6;
+}
+
+/* Hovering over a row highlights it. */
+tr:hover [class^=td] {
+    color: #ffffff;
+    background-color: #222222;
+    border-bottom: 1px solid #222222;
+}
+
+tr:hover .animetitle,
+tr:hover [class^=td] a {
+    color: #ffffff;
+}
+
+/* The "#" column. Check for the class for the "more" drop-down box. */
+[class^=td]:first-child:not(.borderRBL) {
+    color: #888888;
+}
+
+/* Hack for the idiot borders on the "#" column header that are hard-coded in
+ * the HTML. Borders are on all sides, but I don't want it like that, so make
+ * the unwanted borders match the background. */
+td.table_header:first-child {
+    border-color: #222222;
+    /*border-radius: 5px 0 0 0;    For rounded corners */
+}
+/* To keep the table's right border from including the header. */
+td.table_header:last-child {
+    border-right-color: #222222;
+    /*border-radius: 0 5px 0 0;    For rounded corners */
+}
+
+/* Border around the entire table.
+ * Just do the sides, the top and bottom are implicit. */
+[class^=td]:first-child,
+.table_header:first-child {
+    border-left: 1px solid #222222;
+}
+
+[class^=td]:last-child,
+.table_header:first-child {
+    border-right: 1px solid #222222;
+}
+
+/* The "Edit - More" options. */
+[class^=td] div[style^='float'] {
+    margin-left: 7px;
+}
+[class^=td] div[style^='float'] a {
+    color: #888888;
+}
+/* To add a bit more decoration to the "Edit - More" options.
+[class^=td] div[style^='float']:before {
+    content: "[";
+}
+[class^=td] div[style^='float']:after {
+    content: "]";
+} */
+
+/* Controls the select form decoration (the drop down select box). */
+.form {
+    border-color: #222222;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    font-family: Arial,Sans-Serif;
+    font-size: 12px;
+    padding: 2px;
+}
+
+/* Style the "rewatching", "airing", etc, statuses that come behind a show title. */
+a + small {
+    margin-left: 5px;
+    padding: 1px 4px;
+    border-radius: 7px;   /* Have it as rounded as possible. */
+    background-color: #d6d6d6;
+}
+tr:hover a + small {
+    color: #222222;
+}
+
+/* There's only one td in this row. */
+td.category_totals {
+    background-color: #222222;
+    color: #ffffff;
+    padding: 8px 6px;
+    /* border-radius: 0 0 5px 5px;    For rounded corners */
+}
+
+#grand_totals {
+    margin: 15px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+/*
+copyright contains the "Producted by Garrett Gyssler" text
+DO NOT REMOVE OR HIDE THIS DIV
+IF FOUND TO BE REMOVED, YOUR LIST WILL BE REMOVED TOO
+*/
+#copyright {
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* COVER AREA
+The surrounding area containing each cover pic which appears when you point to a row (requires #more CSS).
+Left and top adjust the position it appears on screen.
+Control the height and width of the pic with height and width.
+Remove only the border-radius: 25px 25px 25px 25px; lines to take the rounded corners away.
+Increase height and width to make the pics bigger.
+Delete border-style: solid; to remove the border. .animetitle:hover + .hide
+*/
+:hover + .hide {
+    background-size: cover;
+    left: 75px;
+    top: 160px;
+    height: 350px;
+    width: 226px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-color: black;
+    border-top: 1px solid black;;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-position: center 50% !important;
+    background-repeat: no-repeat !Important;
+    display: block !important;
+    position: fixed;
+}
+
+/* PREVIEW MSG ABOVE COVERS
+Remove content: "preview"; to remove the PREVIEW text.
+Change the text in quotations after content to what you want it to say above your cover pic.
+Top and width controls the position of the text. .animetitle.hide:before
+*/
+.hide:before {
+    background: transparent;
+    color: black;
+    content: "(P)REVIEW";
+    padding-bottom: 5px;
+    position: absolute;
+    text-align: center;
+    width: 225px;
+    top: -25px;
+    border-radius: 25px 25px 0 0;
+}
+
+/* TAGS AREA
+Move the area around with the left and top codes.
+Adjust the surrounding area of the tags by adjusting the padding.
+Control the height and width of the section with the height and width codes.
+
+If your tags/mini-reviews aren't hovering correctly or you need help understanding or adjusting the background color code, see the bottom of the original tutorial: http://myanimelist.net/forum/?topicid=563993&show=0#post1
+*/
+
+
+.td1:nth-of-type(5), .td2:nth-of-type(5) {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    display: none;
+    height: 35px;
+    width: 210px;
+    padding: 5px 0px 0px 16px;
+    position: fixed;
+    top: 522px;
+    left: 75px;
+    z-index: 1;
+    text-align: center;
+}
+
+.table_header:nth-of-type(5) {
+    display: none !important;;
+}
+
+.td:nth-of-type(5)a {
+    display: none !important;;
+}
+
+tbody:hover .table_header:nth-of-type(5) {
+    display: none;
+}
+
+tbody:hover .td:nth-of-type(5)a {
+    display: none !important;;
+}
+
+
+
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(3),
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(4),
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(5),
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(6),
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(7),
+#list_surround tab\le:nth-of-type(n+4):hover td:nth-of-type(8) {
+    display: tab\le-cell;
+}
+
+#list_surround small a:last-of-type {
+    display: none !important;
+}
+
+.animetitle + small {
+    visibility: visible !important;
+}
+
+#list_surround a[href*="http://myanimelist.net/panel.php?go=edit"],
+#list_surround a[href*="http://myanimelist.net/editlist.php?type="],
+#list_surround a[href*="http://myanimelist.net/panel.php?go=add"] {
+    visibility: visible !important;
+    margin-right: 10px
+}
+
+.td1:nth-of-type(6) small, .td2:nth-of-type(6) small,
+.td1:nth-of-type(5) small, .td2:nth-of-type(5) small,
+.td1:nth-of-type(4) small, .td2:nth-of-type(4) small {
+    visibility: visible !important;
+}
+
+.td1:nth-of-type(6) small:hover, .td2:nth-of-type(6) small:hover,
+.td1:nth-of-type(5) small:hover, .td2:nth-of-type(5) small:hover,
+.td1:nth-of-type(4) small:hover, .td2:nth-of-type(4) small:hover{
+    text-decoration: underline;
+}
